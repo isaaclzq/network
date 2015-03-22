@@ -1,0 +1,31 @@
+2.4.1 socket() module function
+
+general syntax:
+	socket(socket_family, socket_type, protocol=0)
+
+socket_family:
+	1) AF_UNIX -> local
+	2) AF_INET -> ip4
+
+socket_type:
+	1) SOCK_STREAM
+	2) SOCK_DGRAM
+
+ex:
+	tcpSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	udpSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+	A) Using from socket import *
+		tcpSock = socket(AF_INET, SOCK_STREAM)
+
+2.4.2 Socket Object(built-in) Methods
+	pseudo code:
+		ss = socket()
+		ss.bind() # bind to local address
+		ss.liten() # required for tcp servers
+			inf_loop:
+				cs = ss.accept()
+				comm_loop:
+					cs.recv()/cs.send()
+			cs.close()
+		ss.close()
