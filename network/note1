@@ -24,8 +24,11 @@ ex:
 		ss.bind() # bind to local address
 		ss.liten() # required for tcp servers
 			inf_loop:
-				cs = ss.accept()
+				cs = ss.accept() # suspend mode by default;
 				comm_loop:
 					cs.recv()/cs.send()
 			cs.close()
 		ss.close()
+
+2.4.3 Creating a TCP client
+
